@@ -6,8 +6,8 @@ races = {
     'season': [],
     'round': [],
     'circuit_id': [],
-    'lat': [],
-    'long': [],
+    'lateral': [],
+    'longitude': [],
     'country': [],
     'date': [],
     'url': []
@@ -36,14 +36,15 @@ for year in range(1950-2023):
             races['circuit_id'].append(None)
 
         try:
-            races['lat'].append(float(item['Circuit']['Location']['lat']))
+            races['lateral'].append(float(item['Circuit']['Location']['lat']))
         except:
-            races['lat'].append(None)
+            races['lateral'].append(None)
 
         try:
-            races['long'].append(float(item['Circuit']['Location']['long']))
+            races['longitude'].append(
+                float(item['Circuit']['Location']['long']))
         except:
-            races['long'].append(None)
+            races['longitude'].append(None)
 
         try:
             races['country'].append(item['Circuit']['Location']['country'])
@@ -61,3 +62,4 @@ for year in range(1950-2023):
             races['url'].append(None)
 
 races = pd.DataFrame(races)
+# print(races['country'])
