@@ -13,11 +13,12 @@ races = {
     'url': []
 }
 
-for year in range(1950-2023):
+for year in list(range(1950, 2023)):
 
     url = 'https://ergast.com/api/f1/{}.json'
     r = requests.get(url.format(year))
     json = r.json()
+    # print(json)
 
     for item in json['MRData']['RaceTable']['Races']:
         try:
@@ -62,4 +63,5 @@ for year in range(1950-2023):
             races['url'].append(None)
 
 races = pd.DataFrame(races)
-# print(races['country'])
+print(races.shape)
+races.to_csv('races.csv', index=False)
