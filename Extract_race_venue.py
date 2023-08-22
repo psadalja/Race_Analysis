@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import numpy as np
 
+
 # races = {
 #     'season': [],
 #     'round': [],
@@ -14,8 +15,9 @@ import numpy as np
 # }
 
 
-def extrct_race_venue():
+def extract_race_venue():
 
+    print("******************************Inside Venue function***********************************")
     races = {
         'season': [],
         'round': [],
